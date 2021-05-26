@@ -58,17 +58,28 @@ Nova.booting((Vue, router, store) => {
     }
 
     let sideLabel = undefined;
-
-    if (from.name === "outstanding-cores") {
+    // all these sideLabels correspond with the the custom nova-components view: ...
+    // ...ex. {custom-nova-component}/resources/views/navigation.blade.php
+    // ...we've added an id to the side-label to target it and set the class "router-link-active"
+    if (from.name === "unassigned-orders") {
+      sideLabel = document.getElementById("unassigned-orders");
+    } else if (from.name === "orders-in-progress") {
+      sideLabel = document.getElementById("orders-in-progress");
+    } else if (from.name === "orders-completed") {
+      sideLabel = document.getElementById("orders-completed");
+    } else if (from.name === "picked-up") {
+      sideLabel = document.getElementById("picked-up");
+    } else if (from.name === "new-returns") {
+      sideLabel = document.getElementById("new-returns");
+    } else if (from.name === "warranties") {
+      sideLabel = document.getElementById("warranties");
+    } else if (from.name === "outstanding-cores") {
       sideLabel = document.getElementById("outstanding-cores");
-      sideLabel.classList.add("router-link-active");
+    } else if (from.name === "issues") {
+      sideLabel = document.getElementById("issues");
     }
 
-    // if (sideLabel) {
-    //   if (from.name === "index") {
-    //     sideLabel.classList.remove("router-link-active");
-    //   }
-    // }
+    if (sideLabel) sideLabel.classList.add("router-link-active");
 
     /** Alias Apps Custom - END **/
 
