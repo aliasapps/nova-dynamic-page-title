@@ -164,15 +164,9 @@ Nova.booting(function (Vue, router, store) {
 
     window.onload = function () {
       console.log("LOADED");
-    };
+      var sideTitle = undefined;
 
-    next();
-  });
-  router.afterEach(function (to, from) {
-    var sideTitle = undefined;
-
-    if (from.name === "unassigned-orders") {
-      document.onload = function () {
+      if (from.name === "unassigned-orders") {
         sideTitle = document.querySelectorAll('[dusk="order-index-component"]');
         console.log("sideTitle: ", sideTitle);
         if (sideTitle.length > 0) {
@@ -183,8 +177,10 @@ Nova.booting(function (Vue, router, store) {
             console.log("innerHTML: ", h1[0].innerHTML = "Unassigned Orders");
           }
         }
-      };
-    }
+      }
+    };
+
+    next();
   });
 });
 

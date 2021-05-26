@@ -103,15 +103,9 @@ Nova.booting((Vue, router, store) => {
 
     window.onload = () => {
       console.log("LOADED");
-    };
+      let sideTitle = undefined;
 
-    next();
-  });
-  router.afterEach((to, from) => {
-    let sideTitle = undefined;
-
-    if (from.name === "unassigned-orders") {
-      document.onload = function() {
+      if (from.name === "unassigned-orders") {
         sideTitle = document.querySelectorAll('[dusk="order-index-component"]');
         console.log("sideTitle: ", sideTitle);
         if (sideTitle.length > 0) {
@@ -122,7 +116,9 @@ Nova.booting((Vue, router, store) => {
             console.log("innerHTML: ", (h1[0].innerHTML = "Unassigned Orders"));
           }
         }
-      };
-    }
+      }
+    };
+
+    next();
   });
 });
