@@ -50,9 +50,10 @@ Nova.booting((Vue, router, store) => {
 
     /** Alias Apps Custom - BEGIN **/
     const activeLabels = document.getElementsByClassName("router-link-active");
-    activeLabels.forEach((label) =>
-      label.classList.remove("router-link-active")
-    );
+    console.log("activeLabels: ", activeLabels);
+    // activeLabels.forEach((label) =>
+    //   label.classList.remove("router-link-active")
+    // );
 
     let sideLabel = undefined;
 
