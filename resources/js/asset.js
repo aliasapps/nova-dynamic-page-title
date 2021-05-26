@@ -56,8 +56,10 @@ Nova.booting((Vue, router, store) => {
       sideLabel.classList.add("router-link-active");
     }
 
-    if (from.name === "index") {
-      sideLabel.classList.remove("router-link-active");
+    if (sideLabel) {
+      if (from.name === "index") {
+        sideLabel.classList.remove("router-link-active");
+      }
     }
 
     /** Alias Apps Custom - END **/
