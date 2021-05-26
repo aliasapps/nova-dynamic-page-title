@@ -111,7 +111,7 @@ Nova.booting(function (Vue, router, store) {
 
     /** Alias Apps Custom - BEGIN **/
     var activeLabels = document.getElementsByClassName("router-link-active");
-    console.log("activeLabels: ", activeLabels);
+
     if (activeLabels.length > 0) {
       Array.from(activeLabels).forEach(function (label) {
         return label.classList.remove("router-link-active");
