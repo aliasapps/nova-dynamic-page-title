@@ -109,6 +109,10 @@ Nova.booting(function (Vue, router, store) {
       if (label == "") label = _.startCase(to.name);
     }
 
+    if (from.name === "unassigned-orders") {
+      label = "Unassigned Orders";
+    }
+
     if (originalTitle && originalTitle !== "") {
       document.title = label + " | " + originalTitle;
     } else {
