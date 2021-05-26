@@ -20,6 +20,7 @@ function getResourceMeta(resourceName) {
 }
 
 Nova.booting((Vue, router, store) => {
+  console.log(Vue);
   var originalTitle = document.title;
   router.beforeEach((to, from, next) => {
     console.log("FROM: ", from.name, "TO: ", to.name);
@@ -101,9 +102,8 @@ Nova.booting((Vue, router, store) => {
       document.title = label;
     }
 
-    window.onload = () => {
-      console.log("LOADED");
-      let sideTitle = undefined;
+    /*
+          let sideTitle = undefined;
 
       if (from.name === "unassigned-orders") {
         sideTitle = document.querySelectorAll('[dusk="order-index-component"]');
@@ -117,7 +117,8 @@ Nova.booting((Vue, router, store) => {
           }
         }
       }
-    };
+     
+     */
 
     next();
   });
