@@ -109,20 +109,25 @@ Nova.booting(function (Vue, router, store) {
       if (label == "") label = _.startCase(to.name);
     }
 
-    if (from.name === "unassigned-orders") {
-      //   label = "Unassigned Orders";
-      var sideLabel = document.getElementById("outstanding-cores");
+    /** Alias Apps Custom - BEGIN **/
+    var sideLabel = undefined;
+
+    if (from.name === "outstanding-cores") {
+      sideLabel = document.getElementById("outstanding-cores");
       sideLabel.classList.add("router-link-active");
-      console.log("if label: ", label);
     }
+
+    if (from.name === "index") {
+      sideLabel.classList.remove("router-link-active");
+    }
+
+    /** Alias Apps Custom - END **/
 
     if (originalTitle && originalTitle !== "") {
       document.title = label + " | " + originalTitle;
     } else {
       document.title = label;
     }
-
-    console.log("document.title: ", document.title);
 
     next();
   });
