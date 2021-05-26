@@ -125,16 +125,17 @@ Nova.booting(function (Vue, router, store) {
     // ...we've added an id to the side-label to target it and set the class "router-link-active"
     if (from.name === "unassigned-orders") {
       sideLabel = document.getElementById("unassigned-orders");
-      sideTitle = document.querySelectorAll('[dusk="order-index-component"]');
-      console.log("sideTitle: ", sideTitle);
-      if (sideTitle.length > 0) {
-        var h1 = sideTitle[0].getElementsByTagName("h1");
-        console.log("h1: ", h1);
-        if (h1.length > 0) {
-          h1[0].innerHTML = "Unassigned Orders";
-          console.log("innerHTML: ", h1[0].innerHTML = "Unassigned Orders");
-        }
-      }
+
+      //   sideTitle = document.querySelectorAll('[dusk="order-index-component"]');
+      //   console.log("sideTitle: ", sideTitle);
+      //   if (sideTitle.length > 0) {
+      //     let h1 = sideTitle[0].getElementsByTagName("h1");
+      //     console.log("h1: ", h1);
+      //     if (h1.length > 0) {
+      //       h1[0].innerHTML = "Unassigned Orders";
+      //       console.log("innerHTML: ", (h1[0].innerHTML = "Unassigned Orders"));
+      //     }
+      //   }
     } else if (from.name === "orders-in-progress") {
       sideLabel = document.getElementById("orders-in-progress");
     } else if (from.name === "orders-completed") {
@@ -162,6 +163,24 @@ Nova.booting(function (Vue, router, store) {
     }
 
     next();
+  });
+  router.afterEach(function (to, from) {
+    var sideTitle = undefined;
+
+    if (from.name === "unassigned-orders") {
+      sideLabel = document.getElementById("unassigned-orders");
+
+      sideTitle = document.querySelectorAll('[dusk="order-index-component"]');
+      console.log("sideTitle: ", sideTitle);
+      if (sideTitle.length > 0) {
+        var h1 = sideTitle[0].getElementsByTagName("h1");
+        console.log("h1: ", h1);
+        if (h1.length > 0) {
+          h1[0].innerHTML = "Unassigned Orders";
+          console.log("innerHTML: ", h1[0].innerHTML = "Unassigned Orders");
+        }
+      }
+    }
   });
 });
 
