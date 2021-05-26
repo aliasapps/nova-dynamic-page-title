@@ -49,6 +49,11 @@ Nova.booting((Vue, router, store) => {
     }
 
     /** Alias Apps Custom - BEGIN **/
+    const activeLabels = document.getElementsByClassName("router-link-active");
+    activeLabels.forEach((label) =>
+      label.classList.remove("router-link-active")
+    );
+
     let sideLabel = undefined;
 
     if (from.name === "outstanding-cores") {
@@ -56,11 +61,11 @@ Nova.booting((Vue, router, store) => {
       sideLabel.classList.add("router-link-active");
     }
 
-    if (sideLabel) {
-      if (from.name === "index") {
-        sideLabel.classList.remove("router-link-active");
-      }
-    }
+    // if (sideLabel) {
+    //   if (from.name === "index") {
+    //     sideLabel.classList.remove("router-link-active");
+    //   }
+    // }
 
     /** Alias Apps Custom - END **/
 
