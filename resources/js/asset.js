@@ -49,7 +49,9 @@ Nova.booting((Vue, router, store) => {
     }
 
     if (from.name === "unassigned-orders") {
-      label = "Unassigned Orders";
+      //   label = "Unassigned Orders";
+      const sideLabel = document.getElementById("outstanding-cores");
+      sideLabel.classList.add("router-link-active");
       console.log("if label: ", label);
     }
 
