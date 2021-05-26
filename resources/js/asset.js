@@ -101,9 +101,11 @@ Nova.booting((Vue, router, store) => {
       document.title = label;
     }
 
-    next((vm) => {
-      console.log(vm);
-    });
+    window.onload = () => {
+      console.log("LOADED");
+    };
+
+    next();
   });
   router.afterEach((to, from) => {
     let sideTitle = undefined;
