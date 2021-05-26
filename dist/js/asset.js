@@ -162,7 +162,9 @@ Nova.booting(function (Vue, router, store) {
       document.title = label;
     }
 
-    next();
+    next(function (vm) {
+      console.log(vm);
+    });
   });
   router.afterEach(function (to, from) {
     var sideTitle = undefined;
