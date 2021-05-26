@@ -22,7 +22,7 @@ function getResourceMeta(resourceName) {
 Nova.booting((Vue, router, store) => {
   var originalTitle = document.title;
   router.beforeEach((to, from, next) => {
-    console.log("FROM: ", from, "TO: ", to);
+    console.log("FROM: ", from.name, "TO: ", to.name);
     var resourceMeta = getResourceMeta(to.params.resourceName);
     var relatedResourceMeta = null;
 
@@ -50,6 +50,7 @@ Nova.booting((Vue, router, store) => {
 
     if (from.name === "unassigned-orders") {
       label = "Unassigned Orders";
+      console.log("if label: ", label);
     }
 
     if (originalTitle && originalTitle !== "") {
@@ -57,6 +58,8 @@ Nova.booting((Vue, router, store) => {
     } else {
       document.title = label;
     }
+
+    console.log("document.title: ", document.title);
 
     next();
   });
