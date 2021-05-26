@@ -93,7 +93,7 @@ function getResourceMeta(resourceName) {
 Nova.booting(function (Vue, router, store) {
   var originalTitle = document.title;
   router.beforeEach(function (to, from, next) {
-    console.log("FROM: ", from);
+    console.log("FROM: ", from, "TO: ", to);
     var resourceMeta = getResourceMeta(to.params.resourceName);
     var relatedResourceMeta = null;
 

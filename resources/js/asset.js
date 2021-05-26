@@ -1,11 +1,15 @@
 // Nova Asset JS
 
 function parseRouteForDisplay(route) {
-  return route.replace("/", "").split("/").map(_.startCase).join(" > ");
+  return route
+    .replace("/", "")
+    .split("/")
+    .map(_.startCase)
+    .join(" > ");
 }
 
 function getResourceMeta(resourceName) {
-  var resourceMeta = Nova.config.resources.filter(function (resource) {
+  var resourceMeta = Nova.config.resources.filter(function(resource) {
     return resource.uriKey == resourceName;
   });
 
@@ -18,7 +22,7 @@ function getResourceMeta(resourceName) {
 Nova.booting((Vue, router, store) => {
   var originalTitle = document.title;
   router.beforeEach((to, from, next) => {
-    console.log("FROM: ", from);
+    console.log("FROM: ", from, "TO: ", to);
     var resourceMeta = getResourceMeta(to.params.resourceName);
     var relatedResourceMeta = null;
 
