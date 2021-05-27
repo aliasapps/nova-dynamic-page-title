@@ -20,7 +20,6 @@ function getResourceMeta(resourceName) {
 }
 
 Nova.booting((Vue, router, store) => {
-  console.log(Vue);
   var originalTitle = document.title;
   router.beforeEach((to, from, next) => {
     console.log("FROM: ", from.name, "TO: ", to.name);
