@@ -74,8 +74,6 @@ module.exports = __webpack_require__(1);
 /* 1 */
 /***/ (function(module, exports) {
 
-var _this = this;
-
 // Nova Asset JS
 
 function parseRouteForDisplay(route) {
@@ -158,7 +156,7 @@ Nova.booting(function (Vue, router, store) {
     }
 
     if (sideLabel) {
-      _this.$emit("HELLO", "helloworld");
+      Nova.$emit("HELLO", "helloworld");
       sideLabel.classList.add("router-link-active");
     }
 

@@ -95,7 +95,7 @@ Nova.booting((Vue, router, store) => {
     }
 
     if (sideLabel) {
-      this.$emit("HELLO", "helloworld");
+      Nova.$emit("HELLO", "helloworld");
       sideLabel.classList.add("router-link-active");
     }
 
