@@ -94,7 +94,10 @@ Nova.booting((Vue, router, store) => {
       sideLabel = document.getElementById("issues");
     }
 
-    if (sideLabel) sideLabel.classList.add("router-link-active");
+    if (sideLabel) {
+      this.$emit("HELLO", "helloworld");
+      sideLabel.classList.add("router-link-active");
+    }
 
     /** Alias Apps Custom - END **/
 

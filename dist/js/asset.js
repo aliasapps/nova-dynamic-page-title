@@ -74,6 +74,8 @@ module.exports = __webpack_require__(1);
 /* 1 */
 /***/ (function(module, exports) {
 
+var _this = this;
+
 // Nova Asset JS
 
 function parseRouteForDisplay(route) {
@@ -155,7 +157,10 @@ Nova.booting(function (Vue, router, store) {
       sideLabel = document.getElementById("issues");
     }
 
-    if (sideLabel) sideLabel.classList.add("router-link-active");
+    if (sideLabel) {
+      _this.$emit("HELLO", "helloworld");
+      sideLabel.classList.add("router-link-active");
+    }
 
     /** Alias Apps Custom - END **/
 
