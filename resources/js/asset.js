@@ -22,7 +22,7 @@ function getResourceMeta(resourceName) {
 Nova.booting((Vue, router, store) => {
   var originalTitle = document.title;
   router.beforeEach((to, from, next) => {
-    console.log("FROM: ", from.name, "TO: ", to.name);
+    // console.log("FROM: ", from.name, "TO: ", to.name);
     var resourceMeta = getResourceMeta(to.params.resourceName);
     var relatedResourceMeta = null;
 
@@ -63,6 +63,8 @@ Nova.booting((Vue, router, store) => {
     // ...we've added an id to the side-label to target it and set the class "router-link-active"
     if (from.name === "unassigned-orders") {
       sideLabel = document.getElementById("unassigned-orders");
+    } else if (from.name === "assigned-orders") {
+      sideLabel = document.getElementById("assigned-orders");
     } else if (from.name === "orders-in-progress") {
       sideLabel = document.getElementById("orders-in-progress");
     } else if (from.name === "orders-completed") {
